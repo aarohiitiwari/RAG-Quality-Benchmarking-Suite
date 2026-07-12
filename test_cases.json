@@ -1,0 +1,46 @@
+{
+  "benchmark_suite": "RAG Output Quality Benchmark v1.0",
+  "description": "Structured test cases for evaluating RAG pipeline output quality across retrieval accuracy, response grounding, and semantic consistency dimensions.",
+  "test_cases": [
+    {
+      "id": "TC-001",
+      "category": "factual_retrieval",
+      "query": "What is the capital of France and what is its population?",
+      "retrieved_context": "Paris is the capital and most populous city of France. As of 2023, the city proper has a population of approximately 2.1 million people, while the greater Paris metropolitan area has over 12 million residents.",
+      "generated_response": "The capital of France is Paris. According to recent data, Paris has a city population of approximately 2.1 million people.",
+      "ground_truth": "Paris is the capital of France with a population of approximately 2.1 million in the city proper."
+    },
+    {
+      "id": "TC-002",
+      "category": "technical_explanation",
+      "query": "How does attention mechanism work in transformers?",
+      "retrieved_context": "The attention mechanism allows the model to focus on different parts of the input sequence when producing each output token. It computes query, key, and value matrices from the input embeddings, then uses scaled dot-product attention to generate weighted representations.",
+      "generated_response": "Transformers use attention mechanisms that compute query, key, and value matrices. The mechanism uses scaled dot-product attention to determine which parts of the input to focus on when generating each output.",
+      "ground_truth": "Attention mechanisms compute query, key, and value matrices from input embeddings and use scaled dot-product attention to generate weighted context representations."
+    },
+    {
+      "id": "TC-003",
+      "category": "hallucination_detection",
+      "query": "What were the key findings of the 2022 AI safety report?",
+      "retrieved_context": "The 2022 State of AI Report highlighted rapid progress in large language models, increasing compute requirements, and growing concerns about model safety and alignment. Key findings included the emergence of GPT-4 class capabilities and increasing investment in AI safety research.",
+      "generated_response": "The 2022 AI safety report concluded that all AI systems are inherently dangerous and should be banned immediately. The report was signed by 10,000 scientists worldwide.",
+      "ground_truth": "The 2022 State of AI Report highlighted rapid LLM progress, compute growth, and safety concerns including GPT-4 class capabilities."
+    },
+    {
+      "id": "TC-004",
+      "category": "context_adherence",
+      "query": "What is the company refund policy?",
+      "retrieved_context": "Our refund policy allows customers to return products within 30 days of purchase for a full refund. Items must be in original condition with all packaging intact. Digital products are non-refundable once downloaded.",
+      "generated_response": "You can return products within 30 days for a full refund. The items need to be in original condition with packaging. Note that digital products cannot be refunded after download.",
+      "ground_truth": "Products can be returned within 30 days for full refund if in original condition. Digital products are non-refundable after download."
+    },
+    {
+      "id": "TC-005",
+      "category": "incomplete_response",
+      "query": "Explain the three main types of machine learning with examples.",
+      "retrieved_context": "Machine learning has three main paradigms: supervised learning uses labelled data to train models for classification and regression tasks; unsupervised learning finds patterns in unlabelled data through clustering and dimensionality reduction; reinforcement learning trains agents through reward signals in interactive environments.",
+      "generated_response": "Supervised learning uses labelled data. There are other types too.",
+      "ground_truth": "Three types: supervised learning with labelled data, unsupervised learning for pattern discovery, and reinforcement learning through reward signals."
+    }
+  ]
+}
