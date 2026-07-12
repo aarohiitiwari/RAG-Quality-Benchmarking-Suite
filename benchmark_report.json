@@ -1,0 +1,250 @@
+{
+  "report_metadata": {
+    "suite": "RAG Output Quality Benchmark v1.0",
+    "generated_at": "2026-07-12 17:00:03",
+    "total_test_cases": 5,
+    "evaluation_dimensions": 5
+  },
+  "pipeline_summary": {
+    "average_overall_score": 41.91,
+    "pipeline_status": "FAIL",
+    "pass_count": 0,
+    "review_count": 1,
+    "fail_count": 4,
+    "pass_rate_percent": 0.0
+  },
+  "dimension_averages": {
+    "faithfulness": 44.86,
+    "answer_relevance": 37.49,
+    "context_precision": 55.77,
+    "groundedness": 32.63,
+    "rouge_l": 41.86
+  },
+  "weakest_dimension": "groundedness",
+  "strongest_dimension": "context_precision",
+  "category_performance": {
+    "factual_retrieval": 58.36,
+    "technical_explanation": 44.45,
+    "hallucination_detection": 39.94,
+    "context_adherence": 39.83,
+    "incomplete_response": 26.96
+  },
+  "recommendations": [
+    {
+      "dimension": "groundedness",
+      "score": 32.63,
+      "priority": "HIGH",
+      "action": "Hallucination risk elevated. Add factual grounding instructions to prompt. Consider adding a verification step."
+    },
+    {
+      "dimension": "answer_relevance",
+      "score": 37.49,
+      "priority": "HIGH",
+      "action": "Response generation drifting from query intent. Tighten system prompt to enforce query-focused responses."
+    },
+    {
+      "dimension": "rouge_l",
+      "score": 41.86,
+      "priority": "HIGH",
+      "action": "Response surface form deviates from expected output. Review output formatting instructions in prompt."
+    },
+    {
+      "dimension": "faithfulness",
+      "score": 44.86,
+      "priority": "HIGH",
+      "action": "Retrieval pipeline returning insufficient context. Review chunk size and overlap parameters."
+    },
+    {
+      "dimension": "context_precision",
+      "score": 55.77,
+      "priority": "MEDIUM",
+      "action": "Retriever fetching low-relevance chunks. Review embedding model and similarity threshold."
+    }
+  ],
+  "test_case_results": [
+    {
+      "test_case_id": "TC-001",
+      "category": "factual_retrieval",
+      "query_preview": "What is the capital of France and what is its population?",
+      "overall_score": 58.36,
+      "overall_status": "REVIEW",
+      "dimensions": {
+        "faithfulness": {
+          "score": 60.85,
+          "status": "REVIEW"
+        },
+        "answer_relevance": {
+          "score": 55.65,
+          "status": "REVIEW"
+        },
+        "context_precision": {
+          "score": 74.52,
+          "status": "REVIEW"
+        },
+        "groundedness": {
+          "score": 46.88,
+          "status": "FAIL"
+        },
+        "rouge_l": {
+          "score": 56.41,
+          "status": "REVIEW"
+        }
+      },
+      "flags": [
+        "faithfulness",
+        "answer_relevance",
+        "context_precision",
+        "groundedness",
+        "rouge_l"
+      ],
+      "pass_rate": 0.0
+    },
+    {
+      "test_case_id": "TC-002",
+      "category": "technical_explanation",
+      "query_preview": "How does attention mechanism work in transformers?",
+      "overall_score": 44.45,
+      "overall_status": "FAIL",
+      "dimensions": {
+        "faithfulness": {
+          "score": 61.38,
+          "status": "REVIEW"
+        },
+        "answer_relevance": {
+          "score": 29.85,
+          "status": "FAIL"
+        },
+        "context_precision": {
+          "score": 26.57,
+          "status": "FAIL"
+        },
+        "groundedness": {
+          "score": 48.84,
+          "status": "FAIL"
+        },
+        "rouge_l": {
+          "score": 48.15,
+          "status": "FAIL"
+        }
+      },
+      "flags": [
+        "faithfulness",
+        "answer_relevance",
+        "context_precision",
+        "groundedness",
+        "rouge_l"
+      ],
+      "pass_rate": 0.0
+    },
+    {
+      "test_case_id": "TC-003",
+      "category": "hallucination_detection",
+      "query_preview": "What were the key findings of the 2022 AI safety report?",
+      "overall_score": 39.94,
+      "overall_status": "FAIL",
+      "dimensions": {
+        "faithfulness": {
+          "score": 24.01,
+          "status": "FAIL"
+        },
+        "answer_relevance": {
+          "score": 58.45,
+          "status": "REVIEW"
+        },
+        "context_precision": {
+          "score": 90.99,
+          "status": "PASS"
+        },
+        "groundedness": {
+          "score": 11.76,
+          "status": "FAIL"
+        },
+        "rouge_l": {
+          "score": 21.28,
+          "status": "FAIL"
+        }
+      },
+      "flags": [
+        "faithfulness",
+        "answer_relevance",
+        "groundedness",
+        "rouge_l"
+      ],
+      "pass_rate": 20.0
+    },
+    {
+      "test_case_id": "TC-004",
+      "category": "context_adherence",
+      "query_preview": "What is the company refund policy?",
+      "overall_score": 39.83,
+      "overall_status": "FAIL",
+      "dimensions": {
+        "faithfulness": {
+          "score": 53.42,
+          "status": "FAIL"
+        },
+        "answer_relevance": {
+          "score": 17.51,
+          "status": "FAIL"
+        },
+        "context_precision": {
+          "score": 35.77,
+          "status": "FAIL"
+        },
+        "groundedness": {
+          "score": 42.86,
+          "status": "FAIL"
+        },
+        "rouge_l": {
+          "score": 54.9,
+          "status": "FAIL"
+        }
+      },
+      "flags": [
+        "faithfulness",
+        "answer_relevance",
+        "context_precision",
+        "groundedness",
+        "rouge_l"
+      ],
+      "pass_rate": 0.0
+    },
+    {
+      "test_case_id": "TC-005",
+      "category": "incomplete_response",
+      "query_preview": "Explain the three main types of machine learning with examples.",
+      "overall_score": 26.96,
+      "overall_status": "FAIL",
+      "dimensions": {
+        "faithfulness": {
+          "score": 24.63,
+          "status": "FAIL"
+        },
+        "answer_relevance": {
+          "score": 26.0,
+          "status": "FAIL"
+        },
+        "context_precision": {
+          "score": 51.01,
+          "status": "FAIL"
+        },
+        "groundedness": {
+          "score": 12.82,
+          "status": "FAIL"
+        },
+        "rouge_l": {
+          "score": 28.57,
+          "status": "FAIL"
+        }
+      },
+      "flags": [
+        "faithfulness",
+        "answer_relevance",
+        "context_precision",
+        "groundedness",
+        "rouge_l"
+      ],
+      "pass_rate": 0.0
+    }
+  ]
+}
